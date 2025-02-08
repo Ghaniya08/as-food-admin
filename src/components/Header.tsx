@@ -1,9 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react'
-import SearchableProductList from './Searchbar'
 import { IoSearch } from "react-icons/io5";
 import { client } from '@/lib/client';
-import Link from 'next/link';
 const Header = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [products, setProducts] = useState<any[]>([]);
