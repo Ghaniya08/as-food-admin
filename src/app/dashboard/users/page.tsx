@@ -1,4 +1,3 @@
-import Header from '@/components/Header'
 import { client } from '@/lib/client';
 import React from 'react'
 import {
