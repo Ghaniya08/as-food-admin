@@ -1,24 +1,24 @@
 "use client";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import { useState } from "react";
-import SignIn from "../components/signin";
-import Dashboard from "@/components/Dashboard";
-// Yeh path sahi check karna!
 
-function App() {
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import SignIn from "@/components/signin";
+import Dashboard from "@/components/Dashboard";
+
+export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    // If user is not authenticated, redirect to SignIn page
+    if (!isAuthenticated) {
+      router.push("/signin");
+    }
+  }, [isAuthenticated, router]);
 
   return (
     <div>
-      <Router>
-      <Routes>
-        <Route path="/signin" element={<SignIn setIsAuthenticated={setIsAuthenticated} />} />
-        <Route path="/dashboard"  element={isAuthenticated ? <Dashboard /> : <Navigate to="/signin" />} />
-        <Route path="*" element={<Navigate to={isAuthenticated ? "/dashboard" : "/signin"} />} />
-      </Routes>
-    </Router>
+      {isAuthenticated ? <Dashboard /> : <SignIn setIsAuthenticated={setIsAuthenticated} />}
     </div>
   );
 }
-
-export default App;
