@@ -19,10 +19,10 @@ const page = async () => {
       name,
       category,
       price,
-      originalPrice,
       image,
       description,
       available,
+      originalPrice,
       tags
     }
   `);
