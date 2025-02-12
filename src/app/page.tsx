@@ -9,13 +9,15 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return (
-    <Router>
+    <div>
+      <Router>
       <Routes>
         <Route path="/signin" element={<SignIn setIsAuthenticated={setIsAuthenticated} />} />
-        <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/signin" />} />
+        <Route path="/dashboard"  element={isAuthenticated ? <Dashboard /> : <Navigate to="/signin" />} />
         <Route path="*" element={<Navigate to={isAuthenticated ? "/dashboard" : "/signin"} />} />
       </Routes>
     </Router>
+    </div>
   );
 }
 

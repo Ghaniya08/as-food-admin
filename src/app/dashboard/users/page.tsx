@@ -14,20 +14,17 @@ import Image from 'next/image';
 import { urlFor } from '@/lib/image';
 
 const page = async () => {
-    const result = await client.fetch(` *[_type == "chef"]{
-        _id,
-        name,
-        position,
-        experience,
-        specialty,
-        image,
-        description,
-        available}`)
+    const user = await client.fetch(` *[_type == "user"] {
+  _id,
+  email,
+  userName
+}
+`)
   return (
     <div>
       <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
       <h1 className="text-3xl font-bold text-gray-900">Chefs List</h1>
-      <Table className="bg-white shadow-md rounded-lg overflow-hidden">
+      {/* <Table className="bg-white shadow-md rounded-lg overflow-hidden">
         <TableCaption>List of all available chefs</TableCaption>
         <TableHeader>
           <TableRow className="bg-gray-100">
@@ -63,7 +60,24 @@ const page = async () => {
             </TableRow>
           ))}
         </TableBody>
-      </Table>
+      </Table> */}
+      <Table className="bg-white shadow-md rounded-lg overflow-hidden">
+          <TableCaption>List of all registered users</TableCaption>
+          <TableHeader>
+            <TableRow className="bg-gray-100">
+              <TableHead>Email</TableHead>
+              <TableHead>Name</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {user.map((user:any) => (
+              <TableRow key={user._id} className="hover:bg-gray-50 transition">
+                <TableCell className="font-medium">{user.email}</TableCell>
+                <TableCell>{user.userName}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
     </div>
       {/* <Header/> */}
 

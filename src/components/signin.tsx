@@ -88,7 +88,7 @@ export default function SignIn({ setIsAuthenticated }:any) {
          <h2 className="text-2xl underline font-extrabold text-center mb-6 text-black">Admin Sign In</h2>
          <div className="flex flex-col gap-4">
            <div className="flex flex-col">
-             <label className="text-lg font-medium text-black">User Name:</label>
+             <label className="text-lg  font-medium text-black">User Name:</label>
              <input
                type="text"
                placeholder="Enter your username"

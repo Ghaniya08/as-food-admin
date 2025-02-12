@@ -1,4 +1,5 @@
 "use client"
+import pic from "../../public/admin.jpg"
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -9,6 +10,7 @@ import {
   ShoppingBag,
   FileText
 } from 'lucide-react';
+import Image from 'next/image';
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -33,6 +35,11 @@ const Sidebar = () => {
       label: 'Users',
       icon: <Users className="w-5 h-5" />,
       href: '/dashboard/users'
+    },
+    {
+      label: 'Add Products',
+      icon: <LayoutDashboard className="w-5 h-5" />,
+      href: '/dashboard/addproducts'
     },
     {
       label: 'Orders',
@@ -75,11 +82,11 @@ const Sidebar = () => {
 
       {/* Footer */}
       <div className="p-4 border-t">
-        <div className="flex items-center gap-3 px-4 py-3">
-          <div className="w-8 h-8 rounded-full bg-gray-200" />
+        <div className="flex items-center gap-3 px- py-3">
+          <Image src={pic} alt='admin' className="w-[50px] h-[50px] rounded-full" />
           <div>
-            <p className="font-medium text-sm">Admin User</p>
-            <p className="text-xs text-gray-500">admin@example.com</p>
+            <p className="font-medium text-sm">GHANIYA KHAN</p>
+            <p className="text-xs text-gray-500">ghaniyaakhann08@gmail.com</p>
           </div>
         </div>
       </div>
