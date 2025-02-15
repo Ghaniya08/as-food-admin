@@ -1,9 +1,9 @@
+"use client"
 import { client } from '@/lib/client';
 import React from 'react'
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -30,9 +30,7 @@ const page = async () => {
     <div>
       <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
       <h1 className="text-3xl font-bold text-gray-900">Product List</h1>
-
       <Table className="bg-white shadow-md rounded-lg overflow-hidden">
-        <TableCaption>List of all available products</TableCaption>
         <TableHeader>
           <TableRow className="bg-gray-100">
             <TableHead className="w-[100px]">Image</TableHead>
@@ -43,7 +41,6 @@ const page = async () => {
             <TableHead>Status</TableHead>
           </TableRow>
         </TableHeader>
-
         <TableBody>
           {result.map((item: any) => (
             <TableRow key={item._id} className="hover:bg-gray-50 transition">
@@ -70,34 +67,6 @@ const page = async () => {
         </TableBody>
       </Table>
     </div>
-       {/* <Table>
-       <TableCaption>A list of your recent invoices.</TableCaption>
-      <TableHeader>
-    <TableRow>
-      <TableHead className="w-[100px]">Invoice</TableHead>
-      <TableHead>Status</TableHead>
-      <TableHead>Method</TableHead>
-      <TableHead className="text-right">Amount</TableHead>
-    </TableRow>
-  </TableHeader>
-
-      {result.map((item:any)=>{
-        return(
-         
-  <TableBody>
-    <TableRow>
-      <TableCell className="font-medium">{item.name}</TableCell>
-      <TableCell>{item.price}</TableCell>
-      <TableCell>{item.originalPrice}</TableCell>
-      <TableCell className="text-right">{item.category}</TableCell>
-    </TableRow>
-  </TableBody>
-
-        )
-      })}
-</Table> */}
-      {/* <Header/> */}
-
     </div>
   )
 }

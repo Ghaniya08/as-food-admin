@@ -3,7 +3,6 @@ import React from 'react'
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -11,7 +10,6 @@ import {
 } from "@/components/ui/table"
 import Image from 'next/image';
 import { urlFor } from '@/lib/image';
-
 const page = async () => {
     const result = await client.fetch(` *[_type == "chef"]{
         _id,
@@ -27,7 +25,7 @@ const page = async () => {
       <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
       <h1 className="text-3xl font-bold text-gray-900">Chefs List</h1>
       <Table className="bg-white shadow-md rounded-lg overflow-hidden">
-        <TableCaption>List of all available chefs</TableCaption>
+        {/* <TableCaption>List of all available chefs</TableCaption> */}
         <TableHeader>
           <TableRow className="bg-gray-100">
             <TableHead className="w-[100px]">Image</TableHead>
@@ -65,9 +63,7 @@ const page = async () => {
       </Table>
     </div>
       {/* <Header/> */}
-
     </div>
   )
 }
-
 export default page

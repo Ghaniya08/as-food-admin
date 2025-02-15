@@ -3,7 +3,6 @@ import React from 'react'
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
     TableHead,
     TableHeader,
@@ -74,9 +73,9 @@ const pages = async() => {
 
 <div className="w-full overflow-x-auto">
   <Table className="bg-white shadow-md rounded-lg min-w-[900px]">
-    <TableCaption className="text-lg font-semibold text-gray-600">
+    {/* <TableCaption className="text-lg font-semibold text-gray-600">
       Customer Orders Overview
-    </TableCaption>
+    </TableCaption> */}
     <TableHeader>
       <TableRow className="bg-gray-100 text-gray-700">
         <TableHead className="w-[200px] p-4 text-left">Order ID</TableHead>
