@@ -27,55 +27,8 @@ const pages = async() => {
      }`)
   return (
     <div>
-      {/* <Table className="bg-white shadow-md rounded-lg overflow-hidden">
-  <TableCaption>List of all customer orders</TableCaption>
-  <TableHeader>
-    <TableRow className="bg-gray-100">
-      <TableHead className="w-[100px]">Order ID</TableHead>
-      <TableHead>Full Name</TableHead>
-      <TableHead>Email</TableHead>
-      <TableHead>Phone</TableHead>
-      <TableHead>Company</TableHead>
-      <TableHead>Address</TableHead>
-      <TableHead>Order Total</TableHead>
-      <TableHead>Status</TableHead>
-      <TableHead>Items</TableHead>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    {result.map((order: any) => (
-      <TableRow key={order._id} className="hover:bg-gray-50 transition">
-        <TableCell className="font-medium">{order._id}</TableCell>
-        <TableCell>{order.fullName}</TableCell>
-        <TableCell>{order.email}</TableCell>
-        <TableCell>{order.phone}</TableCell>
-        <TableCell>{order.company || "N/A"}</TableCell>
-        <TableCell className=''>{order.address}</TableCell>
-        <TableCell className="font-bold text-green-600">${order.orderTotal.toFixed(2)}</TableCell>
-        <TableCell>
-          <span className={`px-2 py-1 rounded-md text-xs font-semibold ${order.orderStatus === "Delivered" ? "bg-green-200 text-green-800" : order.orderStatus === "Processing" ? "bg-yellow-200 text-yellow-800" : "bg-gray-200 text-gray-800"}`}>
-            {order.orderStatus}
-          </span>
-        </TableCell>
-        <TableCell>
-          <ul className="list-disc pl-4 text-gray-500">
-            {order.cartItems.map((item: any, index: number) => (
-              <li key={index}>
-                {item.title} - {item.quantity}x @ ${item.price.toFixed(2)}
-              </li>
-            ))}
-          </ul>
-        </TableCell>
-      </TableRow>
-    ))}
-  </TableBody>
-</Table> */}
-
 <div className="w-full overflow-x-auto">
   <Table className="bg-white shadow-md rounded-lg min-w-[900px]">
-    {/* <TableCaption className="text-lg font-semibold text-gray-600">
-      Customer Orders Overview
-    </TableCaption> */}
     <TableHeader>
       <TableRow className="bg-gray-100 text-gray-700">
         <TableHead className="w-[200px] p-4 text-left">Order ID</TableHead>

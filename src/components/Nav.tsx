@@ -18,16 +18,6 @@ import { Button } from "@/components/ui/button";
 const Sidebar = () => {
   // const pathname = usePathname();
   const [open, setOpen] = useState(false);
-
-  const navItems = [
-    { label: "Dashboard", icon: <LayoutDashboard className="w-5 h-5" />, href: "/dashboard" },
-    { label: "Products", icon: <ShoppingBag className="w-5 h-5" />, href: "/dashboard/products" },
-    { label: "Chefs", icon: <ChefHat className="w-5 h-5" />, href: "/dashboard/chefs" },
-    { label: "Users", icon: <Users className="w-5 h-5" />, href: "/dashboard/users" },
-    { label: "Add Products", icon: <LayoutDashboard className="w-5 h-5" />, href: "/dashboard/addproducts" },
-    { label: "Orders", icon: <FileText className="w-5 h-5" />, href: "/dashboard/orders" },
-  ];
-
   return (
     <div>
       {/* Mobile Menu Button */}
