@@ -16,7 +16,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 
 const Sidebar = () => {
-  const pathname = usePathname();
+  // const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   const navItems = [

@@ -9,8 +9,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import Image from 'next/image';
-import { urlFor } from '@/lib/image';
 
 const page = async () => {
     const user = await client.fetch(` *[_type == "user"] {
