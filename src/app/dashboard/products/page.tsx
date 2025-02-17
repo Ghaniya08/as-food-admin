@@ -97,39 +97,83 @@ const Page = () => {
   };
 
   // Handle Update
+  // const handleUpdate = async () => {
+  //   if (!selectedProduct) return;
+  //   setLoading(true);
+
+  //   let uploadedImageUrl = selectedProduct.image;
+  //   if (imageFile) {
+  //     uploadedImageUrl = await handleImageUpload();
+  //   }
+
+  //   const updatedProductData = {
+  //     ...selectedProduct,
+  //     image: uploadedImageUrl,
+  //   };
+
+  //   try {
+  //     console.log("📤 Sending Data to API:", updatedProductData);
+
+  //     const response = await fetch("/api/editproduct", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify(updatedProductData),
+  //     });
+
+  //     const data = await response.json();
+  //     console.log("📩 API Response:", data);
+
+  //     if (response.ok) {
+  //       console.log("✅ Update Success");
+
+  //       setProducts((prev) =>
+  //         prev.map((p) => (p._id === selectedProduct._id ? updatedProductData : p))
+  //       );
+
+  //       setOpen(false);
+  //     } else {
+  //       console.error("❌ Update Failed:", data.message);
+  //     }
+  //   } catch (error) {
+  //     console.error("❌ Network Error:", error);
+  //   }
+
+  //   setLoading(false);
+  // };
+  
   const handleUpdate = async () => {
     if (!selectedProduct) return;
     setLoading(true);
-
+  
     let uploadedImageUrl = selectedProduct.image;
     if (imageFile) {
       uploadedImageUrl = await handleImageUpload();
     }
-
+  
     const updatedProductData = {
       ...selectedProduct,
       image: uploadedImageUrl,
     };
-
+  
     try {
       console.log("📤 Sending Data to API:", updatedProductData);
-
+  
       const response = await fetch("/api/editproduct", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedProductData),
       });
-
+  
       const data = await response.json();
       console.log("📩 API Response:", data);
-
+  
       if (response.ok) {
         console.log("✅ Update Success");
-
-        setProducts((prev) =>
-          prev.map((p) => (p._id === selectedProduct._id ? updatedProductData : p))
-        );
-
+  
+        // **Manually Re-fetch Products After Update**
+        const updatedProducts = await client.fetch(`*[_type == "food"]`);
+        setProducts(updatedProducts);
+  
         setOpen(false);
       } else {
         console.error("❌ Update Failed:", data.message);
@@ -137,7 +181,7 @@ const Page = () => {
     } catch (error) {
       console.error("❌ Network Error:", error);
     }
-
+  
     setLoading(false);
   };
   
