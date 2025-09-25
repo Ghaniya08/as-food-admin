@@ -13,8 +13,8 @@ import {
 const page = async () => {
     const user = await client.fetch(` *[_type == "user"] {
   _id,
-  email,
-  userName
+   userName,
+  email
 }
 `)
   return (
@@ -83,3 +83,4 @@ const page = async () => {
 }
 
 export default page
+
