@@ -21,8 +21,8 @@ interface Product {
   originalPrice: number;
   description: string;
   available: boolean;
-  tags: string[];
   image: string;
+  tags: string[];
 }
 
 const Page = () => {
@@ -225,3 +225,4 @@ const Page = () => {
 };
 
 export default Page;
+
